@@ -1,10 +1,9 @@
 import React from "react";
 import "./App.css";
-import Navbar from "./Navbar";
-import Greeter from "./Greeter";
 import Counter from "./Counter";
 import MoodToggler from "./MoodToggler";
 import Cart from "./Cart";
+import Navbar from "./Navbar";
 
 const items = [
   { id: 1, name: "Taco Seasoning", price: 2.25, qty: 2 },
@@ -15,6 +14,7 @@ const items = [
 function App() {
   return (
     <React.Fragment>
+      <Navbar />
       <Cart initialItems={items} />
       <Counter step={5} />
       <Counter />
