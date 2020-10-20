@@ -18,7 +18,7 @@ function CartItem({ id, name, price, qty, updateQty }) {
             <img
               className="h-10 w-10 rounded-full"
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
-              alt
+              alt="avatar"
             />
           </div>
           <div className="ml-4">
@@ -68,7 +68,7 @@ function CartItem({ id, name, price, qty, updateQty }) {
         Totol: ${price * qty}
       </td>
       <td className="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-        <a href="#" className="text-indigo-600 hover:text-indigo-900">
+        <a href="/" className="text-indigo-600 hover:text-indigo-900">
           Edit
         </a>
       </td>

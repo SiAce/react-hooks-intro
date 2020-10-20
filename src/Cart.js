@@ -3,12 +3,28 @@ import CartItem from "./CartItem";
 import "./Cart.css";
 
 function Cart({ initialItems }) {
-  const initialState = JSON.parse(window.localStorage.getItem("items"));
-  const [items, setItems] = useState(initialState || initialItems);
+  const [items, setItems] = useState(initialItems);
+  console.log("cart init")
+
+  // useEffect(() => {
+  //   window.localStorage.setItem("items", JSON.stringify(items));
+  // }, [items]);
 
   useEffect(() => {
-    window.localStorage.setItem("items", JSON.stringify(items));
-  }, [items]);
+    fetch("http://127.0.0.1:5000/me")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setItems(result);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          console.log("error fetching from http://127.0.0.1:5000/me")
+        }
+      )
+  }, [])
 
   const updateQty = (id, newQty) => {
     const newItems = items.map((item) => {
